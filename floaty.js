@@ -54,7 +54,14 @@ class Floatation{
             this.particleArray.push(new Particle(x,y,directionX,directionY,size,colour,this.canvas,this.ctx));
         }
         this.animate();
+        animate = () => {
+            requestAnimationFrame(this.animate);
+            this.ctx.clearRect(0,0,innerWidth,innerHeight);
+            for(let i=0; i<this.particleArray.length;i++){
+                this.particleArray[i].update();
+            }
+        }
     }
 }
 
-let floaters = new Floatation(numFloaters, whereCanvasIs, context);
+let floaters = new Floatation(100, document.querySelector("#canvas1"), "2d");
