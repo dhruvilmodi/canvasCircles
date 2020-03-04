@@ -36,3 +36,25 @@ class Particle{
         this.draw();
     };
 }
+
+class Floatation{
+    constructor(numBubbles, canvas, cont){
+        this.canvas = canvas;
+        this.ctx = this.canvas.getContext(cont);
+        this.ctx.canvas.width = window.innerWidth;
+        this.ctx.canvas.height = window.innerHeight;
+        this.particleArray = [];
+        for(let i=0;i<numBubbles;i++){
+            let size = Math.random()*30;
+            let x = Math.random() * (innerWidth - size * 2);
+            let y = Math.random() * (innerHeight - size * 2);
+            let directionX = (Math.random()*0.4) - 0.2;
+            let directionY = (Math.random()*0.4) - 0.2;
+            let colour = `rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`;
+            this.particleArray.push(new Particle(x,y,directionX,directionY,size,colour,this.canvas,this.ctx));
+        }
+        this.animate();
+    }
+}
+
+let floaters = new Floatation(numFloaters, whereCanvasIs, context);
