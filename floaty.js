@@ -20,7 +20,7 @@ class Particle{
         // taget the colour
         this.ctx.fillStyle = this.colour;
         // fill the colour
-        this.ctx.fill;
+        this.ctx.fill();
     };
 
     // changing the valocity or position
@@ -54,12 +54,12 @@ class Floatation{
             this.particleArray.push(new Particle(x,y,directionX,directionY,size,colour,this.canvas,this.ctx));
         }
         this.animate();
-        animate = () => {
-            requestAnimationFrame(this.animate);
-            this.ctx.clearRect(0,0,innerWidth,innerHeight);
-            for(let i=0; i<this.particleArray.length;i++){
-                this.particleArray[i].update();
-            }
+    }
+    animate = () => {
+        requestAnimationFrame(this.animate);
+        this.ctx.clearRect(0,0,innerWidth,innerHeight);
+        for(let i=0; i<this.particleArray.length;i++){
+            this.particleArray[i].update();
         }
     }
 }
