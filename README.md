@@ -2,5 +2,5 @@
 Animate hundreads of 2d circles using simple canvas code
 
 # Technologies
-- ES6 JavaScript
+- ECMAScript 6
 - npm lite-server
